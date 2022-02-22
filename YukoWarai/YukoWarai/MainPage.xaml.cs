@@ -21,7 +21,14 @@ namespace YukoWarai
         private Image[] _anime;         // 笑い時イメージ
 
         private bool laughing;          // 今笑っているよフラグ
+        private int laughtime = 0;      // 笑う回数
         private int flame = 0;          // 笑いアニメフレーム番号
+
+        private int laughkoe = 0;       // 笑い声の番号（0～3）
+        private string[] koe = new string[] { "warai1", "warai2", "warai3", "warai4" };
+
+        // 乱数発生用変数
+        System.Random r = new System.Random();
 
         public MainPage()
         {
@@ -62,32 +69,48 @@ namespace YukoWarai
 
             // タッチイベントの実装
             _stay.Down += (sender, a) => {
-                laughing = true;
                 DependencyService.Get<IMediaPlayer>().Stop();
-                DependencyService.Get<IMediaPlayer>().PlayAsync("warai1");
+                laughing = true;
+                laughtime = 4;
             };
 
             // タイマー処理
-            Device.StartTimer(TimeSpan.FromMilliseconds(200), () => {
+            Device.StartTimer(TimeSpan.FromMilliseconds(250), () => {
                 if (laughing == false) {
                     // 笑ってなきゃ処理しない
                     return true;
-                } else if (DependencyService.Get<IMediaPlayer>().NowPlaying() == true) {
-                    // 笑ってて再生中ならアニメ処理
-                    _anime[flame].IsVisible = false;
-                    flame = (flame + 1) % 4;
-                    _anime[flame].IsVisible = true;
                 } else {
-                    // 笑ってて再生終わりなら全て終了
-                    _anime[flame].IsVisible = false;
-                    _stay.IsVisible = true;
-                    DependencyService.Get<IMediaPlayer>().Stop();
-                    laughing = false;
+                    if (DependencyService.Get<IMediaPlayer>().NowPlaying() == true) {
+                        // 笑ってて再生中ならアニメ処理
+                        _anime[flame].IsVisible = false;
+                        flame = (flame + 1) % 4;
+                        _anime[flame].IsVisible = true;
+                    } else {
+                        // 笑ってて再生終わりなら
+                        DependencyService.Get<IMediaPlayer>().Stop();
+                        if (laughtime > 1) {
+                            // まだ２回以上笑うなら別の声で笑い始める
+                            laughkoe = (laughkoe + r.Next(1, 4)) % 4;
+                            DependencyService.Get<IMediaPlayer>().PlayAsync(koe[laughkoe]);
+                            laughtime -= 1;
+                        } else {
+                            if (laughtime == 1) {
+                                // 最後の一回なら「へぇ」と言う
+                                DependencyService.Get<IMediaPlayer>().PlayAsync("waraiend");
+                                laughtime -= 1;
+                            } else {
+                                // 笑い終わりなら全部終了
+                                _anime[flame].IsVisible = false;
+                                _stay.IsVisible = true;
+                                laughing = false;
+                            }
+                        }
+                    }
                 }
                 return true;
             });
 
-            // 開始の効果音
+            // 開始の「ユウコです！」
             DependencyService.Get<IMediaPlayer>().PlayAsync("yukodesu");
         }
     }

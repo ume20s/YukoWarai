@@ -11,6 +11,7 @@ namespace YukoWarai.Droid
     {
         MediaPlayer player = null;
 
+        [Obsolete]
         private async Task StartPlayerAsync(string title)
         {
             var resourceId = (int)typeof(Resource.Raw).GetField(title).GetValue(null);
@@ -73,6 +74,7 @@ namespace YukoWarai.Droid
             }
         }
 
+        [Obsolete]
         public async Task PlayAsync(string title)
         {
             await StartPlayerAsync(title);
