@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YukoWarai.Android", "YukoWarai\YukoWarai.Android\YukoWarai.Android.csproj", "{E357750B-A525-4E6E-8D8D-C9790FF95F43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YukoWarai", "YukoWarai\YukoWarai\YukoWarai.csproj", "{E7A60EA9-974C-4568-B999-64E7BE7D9BBF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E357750B-A525-4E6E-8D8D-C9790FF95F43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E357750B-A525-4E6E-8D8D-C9790FF95F43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E357750B-A525-4E6E-8D8D-C9790FF95F43}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E357750B-A525-4E6E-8D8D-C9790FF95F43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E357750B-A525-4E6E-8D8D-C9790FF95F43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E357750B-A525-4E6E-8D8D-C9790FF95F43}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E7A60EA9-974C-4568-B999-64E7BE7D9BBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7A60EA9-974C-4568-B999-64E7BE7D9BBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7A60EA9-974C-4568-B999-64E7BE7D9BBF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E7A60EA9-974C-4568-B999-64E7BE7D9BBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7A60EA9-974C-4568-B999-64E7BE7D9BBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7A60EA9-974C-4568-B999-64E7BE7D9BBF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {55A98EE5-DED3-467F-B888-E726C95E283B}
+	EndGlobalSection
+EndGlobal

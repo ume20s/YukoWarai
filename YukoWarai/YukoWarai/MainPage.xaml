@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="YukoWarai.MainPage">
+
+    <Grid x:Name="g" BackgroundColor="#FFE9F1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.01*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="0.01*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+    </Grid>
+</ContentPage>
